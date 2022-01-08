@@ -75,6 +75,11 @@ class QuizSaveView(View):
 
                     return JsonResponse({'passed': True, 'score': score, 'marks': marks})
 
+class ResultsView(View):
+    def get(self, request):
+        marks = Foydalanuvchi.objects.all()
+        return render(request, 'results.html', {'marks':marks})
+
 class LoginView(View):
     def get(self, request):
         return render(request, 'login.html')
@@ -104,6 +109,7 @@ class LogoutView(View):
     def get(self, request):
         logout(request)
         return redirect('login')
+
 
 
 # class ResultsView(View):
