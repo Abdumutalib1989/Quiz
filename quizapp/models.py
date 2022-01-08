@@ -25,5 +25,6 @@ class Javob(models.Model):
 class Foydalanuvchi(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     natija = models.FloatField()
+    quiz = models.ForeignKey(Quiz, models.CASCADE)
     def __str__(self):
         return f"{self.user.username} ({self.natija})"
